@@ -8,6 +8,6 @@ async def start(client, message):
         [InlineKeyboardButton("🔥Channel🔥", url="https://t.me/redx414news")],
         [InlineKeyboardButton("💢Contact Admin💢", url="https://t.me/RedX14")]
     ])
-    welcomed = f"Hello <b>{message.from_user.first_name}</b>\n\n🌼You Can Download Any YT Video Using Our Bot🌼\n😍Send the URL Of the Video and See the Magic😍"
+    welcomed = f"Hello <b>{message.from_user.first_name}</b>\n\n🌼You Can Download Any YT Video Using Our Bot\nSend the URL Of the Video and See the Magic😍"
     await message.reply_text(welcomed, reply_markup=joinButton)
     raise StopPropagation
