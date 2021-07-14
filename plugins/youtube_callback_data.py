@@ -58,13 +58,13 @@ async def catch_youtube_dldata(c, q):
         if metadata.has("height"):
             height = metadata.get("height")
         img = Image.open(thumb_image_path)
-        if cb_data.startswith(("🎵Audio🎵", "🎵docAudio🎵", "🎞docVideo🎞")):
+        if cb_data.startswith(("Audio", "docAudio", "docVideo")):
             img.resize((320, height))
         else:
             img.resize((90, height))
         img.save(thumb_image_path, "JPEG")
      #   print(thumb_image_path)
-    if not cb_data.startswith(("🎞Video🎞", "🎵Audio🎵", "🎵docAudio🎵", "🎞docVideo🎞")):
+    if not cb_data.startswith(("🎞Video🎞", "Audio", "docAudio", "🎞docVideo🎞")):
         print("no data found")
         raise ContinuePropagation
 
@@ -101,7 +101,7 @@ async def catch_youtube_dldata(c, q):
     loop = asyncio.get_event_loop()
 
     med = None
-    if cb_data.startswith("🎵Audio🎵"):
+    if cb_data.startswith("Audio"):
         filename = await downloadaudiocli(audio_command)
         med = InputMediaAudio(
             media=filename,
@@ -110,7 +110,7 @@ async def catch_youtube_dldata(c, q):
             title=os.path.basename(filename)
         )
 
-    if cb_data.startswith("🎞Video🎞"):
+    if cb_data.startswith("Video"):
         filename = await downloadvideocli(video_command)
         dur = round(duration(filename))
         med = InputMediaVideo(
@@ -123,7 +123,7 @@ async def catch_youtube_dldata(c, q):
             supports_streaming=True
         )
 
-    if cb_data.startswith("🎵docAudio🎵"):
+    if cb_data.startswith("docAudio"):
         filename = await downloadaudiocli(audio_command)
         med = InputMediaDocument(
             media=filename,
@@ -131,7 +131,7 @@ async def catch_youtube_dldata(c, q):
             caption=os.path.basename(filename),
         )
 
-    if cb_data.startswith("🎞docVideo🎞"):
+    if cb_data.startswith("docVideo"):
         filename = await downloadvideocli(video_command)
         dur = round(duration(filename))
         med = InputMediaDocument(
