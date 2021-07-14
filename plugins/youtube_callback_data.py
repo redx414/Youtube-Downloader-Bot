@@ -101,7 +101,7 @@ async def catch_youtube_dldata(c, q):
     loop = asyncio.get_event_loop()
 
     med = None
-    if cb_data.startswith("audio"):
+    if cb_data.startswith("🎵Audio🎵"):
         filename = await downloadaudiocli(audio_command)
         med = InputMediaAudio(
             media=filename,
@@ -110,7 +110,7 @@ async def catch_youtube_dldata(c, q):
             title=os.path.basename(filename)
         )
 
-    if cb_data.startswith("video"):
+    if cb_data.startswith("🎞Video🎞"):
         filename = await downloadvideocli(video_command)
         dur = round(duration(filename))
         med = InputMediaVideo(
