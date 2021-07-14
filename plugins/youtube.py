@@ -16,13 +16,13 @@ async def ytdl(_, message):
     try:
         if userLastDownloadTime > datetime.now():
             wait_time = round((userLastDownloadTime - datetime.now()).total_seconds() / 60, 2)
-            await message.reply_text(f"`Wait {wait_time} Minutes before next Request`")
+            await message.reply_text(f"`♨️Wait {wait_time} Minutes to Request Again♨️`")
             return
     except:
         pass
 
     url = message.text.strip()
-    await message.reply_chat_action("typing")
+    await message.reply_chat_action("Typing")
     try:
         title, thumbnail_url, formats = extractYt(url)
 
