@@ -1,6 +1,8 @@
 ## ♨️Youtube Downloader Bot♨️
 
-<\n>[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/redx414/Youtube-Downloader-Bot/tree/master)  
+## Easy Way
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/redx414/Youtube-Downloader-Bot/tree/master)  
 
 
 ## Prerequisite
